@@ -1,14 +1,19 @@
 using System.Collections.ObjectModel;
+using CSC317PassManagerP2Starter.Modules.Models;
 
 namespace CSC317PassManagerP2Starter.Modules.Views;
 
 public partial class PasswordListView : ContentPage
 {
     private ObservableCollection<PasswordRow> _rows = new ObservableCollection<PasswordRow>();
+    private User authenticatedUser;
 
-    public PasswordListView()
+    public PasswordListView(User user)
     {
         InitializeComponent();
+        authenticatedUser = user;
+        
+
 
         //once logged in, generate a set of test passwords for the user.
         App.PasswordController.GenTestPasswords();
